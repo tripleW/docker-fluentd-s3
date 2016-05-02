@@ -1,0 +1,12 @@
+fluentd-s3:
+        image: triplew/fluentd-s3
+        environment:
+                - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+                - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+                - FLUENTD_S3_BUCKET=${FLUENTD_S3_BUCKET}
+                - FLUENTD_S3_REGION=${FLUENTD_S3_REGION}
+        expose:
+                - 24224 
+                - 5140
+        ports:
+                - 24224:24224

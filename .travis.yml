@@ -1,0 +1,15 @@
+sudo: required
+
+language: node_js
+node_js:
+  - "4.1"
+
+services:
+  - docker
+
+before_install:
+  - docker build -t triplew/fluentd-s3 ./
+
+script:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" 
+  - docker push triplew/fluentd-s3
